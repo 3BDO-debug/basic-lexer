@@ -21,10 +21,7 @@ def read_file():
         uploded_filename = Label(screen, text=filename)
         uploded_filename.grid(row=10, column=1)
 
-        label_index = 11
-
-
-        for label in labels:
+        for label_index, label in enumerate(labels, start=11):
 
             title = Label(screen, text=label)
             title.grid(row=label_index, column=0)
@@ -32,7 +29,6 @@ def read_file():
             label_value = ",".join(str(x) for x in action_starter()[label])
             label = Label(screen, text=label_value)
             label.grid(row=label_index, column=1)
-            label_index += 1
 
 
 action_button_label = Label(screen, text="Upload c++ code")
@@ -41,7 +37,7 @@ action_button_label.grid(row=0, column=0, padx=10)
 action_button = Button(screen, text="Choose c++ file", command=lambda: read_file())
 action_button.grid(row=0, column=1)
 
-uploded_filename_label = Label(screen, text=f"Uploded filename :")
+uploded_filename_label = Label(screen, text="Uploded filename :")
 uploded_filename_label.grid(
     row=10,
     column=0,
